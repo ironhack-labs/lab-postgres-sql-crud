@@ -28,7 +28,6 @@ In this lab, you will practice SQL by working with a PostgreSQL database. You wi
 
 <br>
 
-
 ## Requirements
 
 - Fork this repo
@@ -55,7 +54,6 @@ $ git push origin master
 Since we will be querying our database from `psql`, you will need to copy/paste the query you entered in `psql`.
 
 In the `queries.md` file, you will find the instructions about the query you need to perform in each iteration and a space to fill the answer.
-
 
 ### Example
 
@@ -121,47 +119,81 @@ You already know how this goes, so let's start running some queries on our datab
 ```js
 [
   {
-    name: 'solid',
-    owner: 'solidjs',
-    description: 'A declarative, efficient, and flexible JavaScript library for building user interfaces.',
+    name: "solid",
+    owner: "solidjs",
+    description:
+      "A declarative, efficient, and flexible JavaScript library for building user interfaces.",
     stars: 10700,
-    url: 'solidjs.com',
+    url: "solidjs.com",
     releases: 194,
-    licence: 'MIT License',
+    licence: "MIT License",
     used_by: 624,
     contributors: 73,
-    main_technology: 'typescript',
-    type: 'UI Library',
-    release_date: '2011-08-13'
+    main_technology: "typescript",
+    type: "UI Library",
+    release_date: "2011-08-13",
   },
   {
-    name: 'chartjs',
-    owner: 'chartjs',
-    description: 'Simple HTML5 Charts using the canvas tag.',
+    name: "chartjs",
+    owner: "chartjs",
+    description: "Simple HTML5 Charts using the canvas tag.",
     stars: 54700,
-    url: 'chartjs.org',
+    url: "chartjs.org",
     releases: 85,
-    licence: 'MIT License',
+    licence: "MIT License",
     used_by: 414000,
     contributors: 377,
-    main_technology: 'javascript',
-    type: 'Charts Library',
-    release_date: '2011-11-02'
-  }
+    main_technology: "javascript",
+    type: "Charts Library",
+    release_date: "2011-11-02",
+  },
 ];
 ```
 
 <br>
 
-2. Get **all the fields** of the library that was **released earliest** (first). <br> <br>
-3. Get **all the fields** of the library that was **released most recently** (last). <br> <br>
-4. All the libraries released **before 2015**. <br> <br>
-5. Get the `name` and the `release_date` of the libraries **without a licence**. <br> <br>
-6. Get the `name` and the `stars` from all **CSS Framework** libraries. <br> <br>
-7. Get the `name` of the libraries where the main technology is **Typescript**. <br> <br>
-8. Get the `name` and the `type` of all the libraries with **more than 1000 contributors**. <br> <br>
-9. Get the **total** number of `stars` of **all the libraries**. <br> <br>
-10. Get the **average** number of `contributors` for **all the libraries**. <br> <br>
+2. | Get **all the fields** of the library that was **released earliest** (first). <br> | name    | owner                                                                                   | description | stars       | url | releases    | licence | used_by | contributors | main_technology | type       | release_date |
+   | ---------------------------------------------------------------------------------- | ------- | --------------------------------------------------------------------------------------- | ----------- | ----------- | --- | ----------- | ------- | ------- | ------------ | --------------- | ---------- | ------------ |
+   | solid                                                                              | solidjs | A declarative, efficient, and flexible JavaScript library for building user interfaces. | 10700       | solidjs.com | 194 | MIT License | 624     | 73      | typescript   | UI Library      | 2011-08-13 | <br>         |
+3. | Get **all the fields** of the library that was **released most recently** (last). <br> | name      | owner                                                                       | description | stars         | url  | releases    | licence | used_by | contributors | main_technology    | type       | release_date |
+   | -------------------------------------------------------------------------------------- | --------- | --------------------------------------------------------------------------- | ----------- | ------------- | ---- | ----------- | ------- | ------- | ------------ | ------------------ | ---------- | ------------ |
+   | chakra-ui                                                                              | chakra-ui | ⚡️ Simple, Modular & Accessible UI Components for your React Applications. | 20300       | chakra-ui.com | 2073 | MIT License | 23100   | 429     | typescript   | Components Library | 2018-08-12 | <br>         |
+4. | All the libraries released **before 2015**. <br> | name           | owner                                                                                     | description | stars                                      | url | releases    | licence | used_by | contributors | main_technology    | type       | release_date |
+   | ------------------------------------------------ | -------------- | ----------------------------------------------------------------------------------------- | ----------- | ------------------------------------------ | --- | ----------- | ------- | ------- | ------------ | ------------------ | ---------- | ------------ |
+   | react                                            | facebook       | A declarative, efficient, and flexible JavaScript library for building user interfaces.   | 174000      | reactjs.org                                | 138 | MIT License | 7400000 | 1501    | javascript   | SPA library        | 2014-08-23 |
+   | ant-design                                       | ant-design     | VAn enterprise-class UI design language and React UI library.                             | 34600       | ant.design                                 | 474 | MIT License | 233000  | 1469    | typescript   | Components Library | 2012-12-16 |
+   | victory                                          | FormidableLabs | A collection of composable React components for building interactive data visualizations. | 9100        | http://formidable.com/open-source/victory/ | 214 | null        | 9700    | 148     | javascript   | Charts Library     | 2014-08-08 |
+   | pug                                              | pugjs          | Pug – robust, elegant, feature rich template engine for Node.js.                          | 20300       | pugjs.org                                  | 244 | MIT License | 348000  | 253     | javascript   | Template engine    | 2012-02-07 |
+   | hbs                                              | pillarjs       | Express view engine wrapper for Handlebars.                                               | 1500        | pugjs.org                                  | 44  | MIT License | null    | 25      | javascript   | Template engine    | 2013-08-25 |
+   | moment                                           | moment         | Parse, validate, manipulate, and display dates in javascript.                             | 45900       | momentjs.com                               | 84  | null        | 2500000 | 590     | javascript   | Date library       | 2012-10-08 |
+   | solid                                            | solidjs        | A declarative, efficient, and flexible JavaScript library for building user interfaces.   | 10700       | solidjs.com                                | 194 | MIT License | 624     | 73      | typescript   | UI Library         | 2011-08-13 |
+   | chartjs                                          | chartjs        | Simple HTML5 Charts using the canvas tag.                                                 | 54700       | chartjs.org                                | 85  | MIT License | 414000  | 377     | javascript   | Charts Library     | 2011-11-02 | <br>         |
+5. | Get the `name` and the `release_date` of the libraries **without a licence**. <br> | name       | release_date |
+   | ---------------------------------------------------------------------------------- | ---------- | ------------ |
+   | victory                                                                            | 2014-08-08 |
+   | moment                                                                             | 2012-10-08 | <br>         |
+6. Get the `name` and the `stars` from all **CSS Framework** libraries. <br>
+   | name | stars |
+   | ----------- | ------ |
+   | bootstrap | 153000 |
+   | materialize | 36600 | <br>
+7. | Get the `name` of the libraries where the main technology is **Typescript**. <br> | name |
+   | --------------------------------------------------------------------------------- | ---- |
+   | styled-components                                                                 |
+   | ant-design                                                                        |
+   | chakra-ui                                                                         |
+   | solid                                                                             | <br> |
+8. | Get the `name` and the `type` of all the libraries with **more than 1000 contributors**. <br> | name               | type |
+   | --------------------------------------------------------------------------------------------- | ------------------ | ---- |
+   | react                                                                                         | SPA library        |
+   | ant-design                                                                                    | Components Library |
+   | bootstrap                                                                                     | CSS Framework      | <br> |
+9. | Get the **total** number of `stars` of **all the libraries**. <br> | sum  |
+   | ------------------------------------------------------------------ | ---- |
+   | 783300                                                             | <br> |
+10. | Get the **average** number of `contributors` for **all the libraries**. <br> | avg  |
+    | ---------------------------------------------------------------------------- | ---- |
+    | 542.5384615384615385                                                         | <br> |
 11. Update the `licence` field of the **libriaries without a licence** to store `'unknown'` instead of `NULL`. <br> <br>
 12. Update the `used_by` field of the **libraries that don't have it specified** to store `'unknown'` instead of `NULL`. <br> <br>
 13. Update all the records to **capitalize the string** provided in the `main_technology` field. <br> <br>
