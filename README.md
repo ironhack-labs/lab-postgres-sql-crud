@@ -28,7 +28,6 @@ In this lab, you will practice SQL by working with a PostgreSQL database. You wi
 
 <br>
 
-
 ## Requirements
 
 - Fork this repo
@@ -55,7 +54,6 @@ $ git push origin master
 Since we will be querying our database from `psql`, you will need to copy/paste the query you entered in `psql`.
 
 In the `queries.md` file, you will find the instructions about the query you need to perform in each iteration and a space to fill the answer.
-
 
 ### Example
 
@@ -121,52 +119,95 @@ You already know how this goes, so let's start running some queries on our datab
 ```js
 [
   {
-    name: 'solid',
-    owner: 'solidjs',
-    description: 'A declarative, efficient, and flexible JavaScript library for building user interfaces.',
+    name: "solid",
+    owner: "solidjs",
+    description:
+      "A declarative, efficient, and flexible JavaScript library for building user interfaces.",
     stars: 10700,
-    url: 'solidjs.com',
+    url: "solidjs.com",
     releases: 194,
-    licence: 'MIT License',
+    licence: "MIT License",
     used_by: 624,
     contributors: 73,
-    main_technology: 'typescript',
-    type: 'UI Library',
-    release_date: '2011-08-13'
+    main_technology: "typescript",
+    type: "UI Library",
+    release_date: "2011-08-13",
   },
   {
-    name: 'chartjs',
-    owner: 'chartjs',
-    description: 'Simple HTML5 Charts using the canvas tag.',
+    name: "chartjs",
+    owner: "chartjs",
+    description: "Simple HTML5 Charts using the canvas tag.",
     stars: 54700,
-    url: 'chartjs.org',
+    url: "chartjs.org",
     releases: 85,
-    licence: 'MIT License',
+    licence: "MIT License",
     used_by: 414000,
     contributors: 377,
-    main_technology: 'javascript',
-    type: 'Charts Library',
-    release_date: '2011-11-02'
-  }
+    main_technology: "javascript",
+    type: "Charts Library",
+    release_date: "2011-11-02",
+  },
 ];
 ```
 
 <br>
 
 2. Get **all the fields** of the library that was **released earliest** (first). <br> <br>
-3. Get **all the fields** of the library that was **released most recently** (last). <br> <br>
-4. All the libraries released **before 2015**. <br> <br>
-5. Get the `name` and the `release_date` of the libraries **without a licence**. <br> <br>
-6. Get the `name` and the `stars` from all **CSS Framework** libraries. <br> <br>
-7. Get the `name` of the libraries where the main technology is **Typescript**. <br> <br>
-8. Get the `name` and the `type` of all the libraries with **more than 1000 contributors**. <br> <br>
-9. Get the **total** number of `stars` of **all the libraries**. <br> <br>
-10. Get the **average** number of `contributors` for **all the libraries**. <br> <br>
-11. Update the `licence` field of the **libriaries without a licence** to store `'unknown'` instead of `NULL`. <br> <br>
-12. Update the `used_by` field of the **libraries that don't have it specified** to store `'unknown'` instead of `NULL`. <br> <br>
-13. Update all the records to **capitalize the string** provided in the `main_technology` field. <br> <br>
-14. Delete all the records where `licence` is `'unknown'`. <br> <br>
-15. Delete all the records with **10000 or less** `stars`. <br> <br>
-16. Delete all the records with **less than 100** `releases`. <br> <br>
+3. SELECT \* FROM jslibraries
+   ORDER BY release_date ASC
+   LIMIT 1;
+
+4. Get **all the fields** of the library that was **released most recently** (last). <br> <br>
+5. SELECT \* FROM jslibraries
+   ORDER BY release_date DESC;
+
+6. All the libraries released **before 2015**. <br> <br>
+7. SELECT \*
+   FROM jslibraries
+   WHERE release_date < '2015-01-01';
+
+8. Get the `name` and the `release_date` of the libraries **without a licence**. <br> <br>
+9. SELECT name, release_date
+   FROM jslibraries
+   WHERE licence IS NULL OR licence = '';
+10. Get the `name` and the `stars` from all **CSS Framework** libraries. <br> <br>
+11. SELECT name,stars
+    FROM jslibraries
+    Where type = 'CSS Framework';
+12. Get the `name` of the libraries where the main technology is **Typescript**. <br> <br>
+13. SELECT name
+    FROM jslibraries
+    Where main_technology = 'typescript';
+14. Get the `name` and the `type` of all the libraries with **more than 1000 contributors**. <br> <br>
+15. SELECT name,type
+    FROM jslibraries
+    Where contributors > 1000;
+16. Get the **total** number of `stars` of **all the libraries**. <br> <br>
+17. SELECT SUM(stars) AS total_stars
+    FROM jslibraries;
+18. Get the **average** number of `contributors` for **all the libraries**. <br> <br>
+19. SELECT AVG(contributors) AS average_contributors
+    FROM jslibraries;
+20. Update the `licence` field of the **libriaries without a licence** to store `'unknown'` instead of `NULL`. <br> <br>
+21. UPDATE jslibraries
+    SET licence = 'unknown'
+    WHERE licence IS NULL;
+22. Update the `used_by` field of the **libraries that don't have it specified** to store `'unknown'` instead of `NULL`. <br> <br>
+23. UPDATE jslibraries
+    SET used_by = -1
+    WHERE used_by IS NULL;
+24. Update all the records to **capitalize the string** provided in the `main_technology` field. <br> <br>
+25. UPDATE jslibraries
+    SET main_technology = UPPER(main_technology);
+26. Delete all the records where `licence` is `'unknown'`. <br> <br>
+27. DELETE FROM jslibraries
+    WHERE licence = 'unknown';
+
+28. Delete all the records with **10000 or less** `stars`. <br> <br>
+29. DELETE FROM jslibraries
+    WHERE stars <= 10000;
+30. Delete all the records with **less than 100** `releases`. <br> <br>
+31. DELETE FROM jslibraries
+    WHERE releases < 100;
 
 Happy Coding! 💙
