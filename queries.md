@@ -8,11 +8,38 @@
 
 <!-- Your Query Goes Here -->
 
+INSERT INTO jslibraries(name, owner, description, stars, url, releases, licence, used_by, contributors, main_technology, type,release_date)
+VALUES
+('solid', 'solidjs','A declarative, efficient, and flexible JavaScript library for building user interfaces.', 10700, 'solidjs.com',
+194,
+'MIT License',
+624,
+73,
+'typescript',
+'UI Library',
+'2011-08-13'),
+(
+'chartjs',
+'chartjs',
+'Simple HTML5 Charts using the canvas tag.',
+54700,
+'chartjs.org',
+85,
+'MIT License',
+414000,
+377,
+'javascript',
+'Charts Library',
+'2011-11-02'
+)
+
 <br>
 
 **2. Get all the fields of the library that was released earliest (first).**
 
 <!-- Your Query Goes Here -->
+
+SELECT \* FROM jslibraries order by release_date limit 1
 
 <br>
 
@@ -20,11 +47,15 @@
 
 <!-- Your Query Goes Here -->
 
+SELECT\* FROM jslibraries order by release_date desc limit 1
+
 <br>
 
 **4. All the libraries released before 2015.**
 
 <!-- Your Query Goes Here -->
+
+SELECT\* FROM jslibraries where release_date < '2015-01-01'
 
 <br>
 
@@ -32,41 +63,51 @@
 
 <!-- Your Query Goes Here -->
 
+SELECT name, release_date FROM jslibraries
 <br>
 
 **6. Get the `name` and the `stars` from all CSS Framework libraries.**
 
 <!-- Your Query Goes Here -->
 
+SELECT name, stars FROM jslibraries where type like 'CSS Framework'
 <br>
 
 **7. Get the `name` of the libraries where the main technology is Typescript.**
 
 <!-- Your Query Goes Here -->
 
+SELECT name FROM jslibraries where main_technology like 'typescript'
 <br>
 
 **8. Get the `name` and the `type` of all the libraries with more than 1000 contributors.**
 
 <!-- Your Query Goes Here -->
 
+SELECT name, type FROM jslibraries where contributors > 1000
 <br>
 
 **9. Get the total number of `stars` of all the libraries.**
 
 <!-- Your Query Goes Here -->
 
+SELECT sum(stars) from jslibraries
 <br>
 
 **10. Get the average number of `contributors` for all the libraries.**
 
 <!-- Your Query Goes Here -->
 
+SELECT avg(contributors) from jslibraries
 <br>
 
 **11. Update the `licence` field of the libriaries without a licence to store `'unknown'` instead of `NULL`.**
 
 <!-- Your Query Goes Here -->
+
+UPDATE jslibraries
+SET licence = 'unknown'
+WHERE licence IS NULL;
 
 <br>
 
@@ -80,22 +121,30 @@
 
 <!-- Your Query Goes Here -->
 
+update jslibraries
+set main_technology = INITCAP(main_technology)
 <br>
 
 **14. Delete all the records where `licence` is `'unknown'`.**
 
 <!-- Your Query Goes Here -->
 
+delete from jslibraries
+where licence = 'unknown'
 <br>
 
 **15. Delete all the records with 10000 or less `stars`.**
 
 <!-- Your Query Goes Here -->
 
+delete from jslibraries
+where stars <= 10000
 <br>
 
 **16. Delete all the records with less than 100 `releases`.**
 
 <!-- Your Query Goes Here -->
 
+delete from jslibraries
+where releases < 100
 <br>
