@@ -122,14 +122,17 @@ WHERE licence IS NULL;
 UPDATE jslibraries
 SET used_by = -1
 WHERE used_by IS NULL;
-
-<!-- another way is to change  the column data type >
+<br>
+<br>
+<br>
+Another way is to change  the column data type 
+<br>
 ALTER TABLE jslibraries 
 ALTER COLUMN used_by TYPE VARCHAR(20);
-
+<br>
 UPDATE jslibraries
 SET used_by = 'unknown'
-WHERE used_by IS NULL;
+WHERE used_by IS NULL;  
 
 
 <br>
