@@ -104,7 +104,7 @@ VALUES
   ('hbs', 'pillarjs', 'Express view engine wrapper for Handlebars.', 1500, 'pugjs.org', 44, 'MIT License', NULL, 25, 'javascript', 'Template engine', '2013-08-25'),
   ('bootstrap', 'twbs', 'The most popular HTML, CSS, and JavaScript framework for developing responsive, mobile first projects on the web.', 153000, 'getbootstrap.com', 72, 'MIT License', 2700000, 1240, 'javascript', 'CSS Framework', '2017-10-25'),
   ('materialize', 'Dogfalo', 'Materialize, a CSS Framework based on Material Design.', 36600, 'materializecss.com', 44, 'MIT License', 77200, 261, 'javascript', 'CSS Framework', '2016-08-20'),
-  ('moment', 'moment', 'Parse, validate, manipulate, and display dates in javascript.', 45900, 'momentjs.com', 84, NULL, 2500000, 590, 'javascript', 'Date library', '2012-10-08')
+  ('moment', 'moment', 'Parse, validate, manipulate, and display dates in javascript.', 45900, 'momentjs.com', 84, NULL, 2500000, 590, 'javascript', 'Date library', '2012-10-08');
 
 
 ```
