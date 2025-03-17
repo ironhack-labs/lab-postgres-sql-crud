@@ -6,7 +6,10 @@
 
 **1. Add the `solid` and `chartjs` libraries as new rows to the `jslibraries` table.**
 
-<!-- Your Query Goes Here -->
+INSERT INTO jslibraries(name, owner, description, stars, url, releases, licence, used_by, contributors, main_technology, type, release_date)
+VALUES
+('solid', 'solidjs', 'A declarative, efficient, and flexible JavaScript library for building user interfaces.', 10700, 'solidjs.com', 194, 'MIT License', 624, 73, 'typescript', 'UI Library', '2011-08-13'),
+('chartjs', 'chartjs', 'Simple HTML5 Charts using the canvas tag.', 54700, 'chartjs.org', 85, 'MIT License', 414000, 377, 'javascript', 'Charts Library', '2011-11-02');
 
 <br>
 
