@@ -28,7 +28,6 @@ In this lab, you will practice SQL by working with a PostgreSQL database. You wi
 
 <br>
 
-
 ## Requirements
 
 - Fork this repo
@@ -55,7 +54,6 @@ $ git push origin master
 Since we will be querying our database from `psql`, you will need to copy/paste the query you entered in `psql`.
 
 In the `queries.md` file, you will find the instructions about the query you need to perform in each iteration and a space to fill the answer.
-
 
 ### Example
 
@@ -122,33 +120,34 @@ You already know how this goes, so let's start running some queries on our datab
 ```js
 [
   {
-    name: 'solid',
-    owner: 'solidjs',
-    description: 'A declarative, efficient, and flexible JavaScript library for building user interfaces.',
+    name: "solid",
+    owner: "solidjs",
+    description:
+      "A declarative, efficient, and flexible JavaScript library for building user interfaces.",
     stars: 10700,
-    url: 'solidjs.com',
+    url: "solidjs.com",
     releases: 194,
-    licence: 'MIT License',
+    licence: "MIT License",
     used_by: 624,
     contributors: 73,
-    main_technology: 'typescript',
-    type: 'UI Library',
-    release_date: '2011-08-13'
+    main_technology: "typescript",
+    type: "UI Library",
+    release_date: "2011-08-13",
   },
   {
-    name: 'chartjs',
-    owner: 'chartjs',
-    description: 'Simple HTML5 Charts using the canvas tag.',
+    name: "chartjs",
+    owner: "chartjs",
+    description: "Simple HTML5 Charts using the canvas tag.",
     stars: 54700,
-    url: 'chartjs.org',
+    url: "chartjs.org",
     releases: 85,
-    licence: 'MIT License',
+    licence: "MIT License",
     used_by: 414000,
     contributors: 377,
-    main_technology: 'javascript',
-    type: 'Charts Library',
-    release_date: '2011-11-02'
-  }
+    main_technology: "javascript",
+    type: "Charts Library",
+    release_date: "2011-11-02",
+  },
 ];
 ```
 
